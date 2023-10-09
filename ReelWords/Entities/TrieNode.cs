@@ -8,5 +8,7 @@ namespace ReelWords.Entities
 {
     internal class TrieNode
     {
+        public TrieNode[] Children { get; set; } = new TrieNode[26];
+        public bool IsEndOfWord { get; set; }
     }
 }
