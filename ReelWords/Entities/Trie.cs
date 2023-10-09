@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ReelWords.Exceptions;
+using System;
 using System.Linq;
 
 namespace ReelWords.Entities
@@ -15,6 +16,10 @@ namespace ReelWords.Entities
 
         public bool Search(string s)
         {
+            if (string.IsNullOrEmpty(s))
+            {
+                return false;
+            }
             var currentNode = root;
             foreach (var c in s)
             {
@@ -30,6 +35,11 @@ namespace ReelWords.Entities
 
         public void Insert(string word)
         {
+            if (string.IsNullOrEmpty(word))
+            {
+                throw new InvalidWordException("Inserted null or empty word.");
+            }
+
             var currentNode = root;
             foreach (var c in word)
             {
@@ -45,6 +55,10 @@ namespace ReelWords.Entities
 
         public void Delete(string word)
         {
+            if (string.IsNullOrEmpty(word)) 
+            { 
+                throw new InvalidWordException("Delete null or empty word.");
+            }
             Delete(root, word, 0);
         }
 
