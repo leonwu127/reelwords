@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "R4cXqaeYfSy8Rgl1YqA7GMRmMySMF3a32DeXgFsevog5DX+3BX3Bl0wvpW3NySKHYFRJ7vOs+i81UzpetPVFpg==",
+  "dgSpecHash": "UCsBnmUptL11LKSGhLAdOvXHYRuzAaDwAS/hAmPbcdsch88F2AURsaqA+68IQ8It8em4MsTqKYaMfM6cBS3jDA==",
   "success": true,
   "projectFilePath": "C:\\Users\\leonw\\Desktop\\Leon Job Seeking\\tests\\Program\\ReelWordsTests\\ReelWordsTests.csproj",
   "expectedPackageFiles": [
@@ -102,10 +102,7 @@
     "C:\\Users\\leonw\\.nuget\\packages\\xunit.core\\2.4.0\\xunit.core.2.4.0.nupkg.sha512",
     "C:\\Users\\leonw\\.nuget\\packages\\xunit.extensibility.core\\2.4.0\\xunit.extensibility.core.2.4.0.nupkg.sha512",
     "C:\\Users\\leonw\\.nuget\\packages\\xunit.extensibility.execution\\2.4.0\\xunit.extensibility.execution.2.4.0.nupkg.sha512",
-    "C:\\Users\\leonw\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.0\\xunit.runner.visualstudio.2.4.0.nupkg.sha512",
-    "C:\\Users\\leonw\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.22\\microsoft.netcore.app.ref.6.0.22.nupkg.sha512",
-    "C:\\Users\\leonw\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.22\\microsoft.windowsdesktop.app.ref.6.0.22.nupkg.sha512",
-    "C:\\Users\\leonw\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.22\\microsoft.aspnetcore.app.ref.6.0.22.nupkg.sha512"
+    "C:\\Users\\leonw\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.0\\xunit.runner.visualstudio.2.4.0.nupkg.sha512"
   ],
   "logs": []
 }

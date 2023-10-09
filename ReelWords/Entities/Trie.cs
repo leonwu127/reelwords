@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ReelWords
+namespace ReelWords.Entities
 {
     public class Trie
     {
