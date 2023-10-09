@@ -1,0 +1,52 @@
+    Start
+      |
+      v
+ +---+-----------+
+ | Initialize    |  Load dictionary, reels, and scores
+ +---+-----------+
+      |
+      v
+ +---+-----------+
+ | Show Reels    |  Display the current state of the reels to the player
+ +---+-----------+
+      |
+      v
+ +---+-----------+
+ | Get Input     |  Accept word input from the player
+ +---+-----------+
+      |
+      v
+ +---+-----------+
+ | Validate      |  Validate input against reels and dictionary
+ +---+---+-------+
+      |   |
+      |   v
+      | +---+------------+
+      | | Invalid Input  |  Inform player of invalid input
+      | +---+------------+
+      |     |
+      |     v
+      |  Return to "Get Input"
+      |
+      v
+ +---+-----------+
+ | Update Score  |  Update the player's score based on the input word
+ +---+-----------+
+      |
+      v
+ +---+-----------+
+ | Update Reels  |  Update the reels according to the game rules
+ +---+-----------+
+      |
+      v
+ +---+-----------+
+ | Game Over?    |  Check for end-of-game conditions
+ +---+---+-------+
+      |   |
+      |   v
+      | +---+-----+
+      | | Game End |  Display final score and end game
+      | +---------+
+      |
+      v
+     Return to "Show Reels"

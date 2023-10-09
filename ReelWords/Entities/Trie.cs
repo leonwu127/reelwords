@@ -1,6 +1,9 @@
 ﻿using ReelWords.Exceptions;
+using ReelWords.Utility;
 using System;
+using System.Globalization;
 using System.Linq;
+using System.Text;
 
 namespace ReelWords.Entities
 {
@@ -14,14 +17,15 @@ namespace ReelWords.Entities
         }
 
 
-        public bool Search(string s)
+        public bool Search(string word)
         {
-            if (string.IsNullOrEmpty(s))
+            if (!WordValidator.IsValidWord(word))
             {
-                return false;
+                throw new InvalidWordException("Invalid word: " + word);
             }
+            word = word.ToLower();
             var currentNode = root;
-            foreach (var c in s)
+            foreach (var c in word)
             {
                 var index = c - 'a';
                 if (currentNode.Children[index] == null)
@@ -35,10 +39,11 @@ namespace ReelWords.Entities
 
         public void Insert(string word)
         {
-            if (string.IsNullOrEmpty(word))
+            if (!WordValidator.IsValidWord(word))
             {
-                throw new InvalidWordException("Inserted null or empty word.");
+                return;
             }
+            word = WordValidator.NormalizeWord(word);
 
             var currentNode = root;
             foreach (var c in word)
@@ -53,11 +58,12 @@ namespace ReelWords.Entities
             currentNode.IsEndOfWord = true;
         }
 
+
         public void Delete(string word)
         {
-            if (string.IsNullOrEmpty(word)) 
-            { 
-                throw new InvalidWordException("Delete null or empty word.");
+            if (!WordValidator.IsValidWord(word))
+            {
+                throw new InvalidWordException("Invalid word: " + word);
             }
             Delete(root, word, 0);
         }
@@ -68,7 +74,7 @@ namespace ReelWords.Entities
             {
                 return false;
             }
-
+            word = word.ToLower();
             if (depth == word.Length)
             {
                 if (node.IsEndOfWord)

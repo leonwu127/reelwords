@@ -6,18 +6,15 @@ namespace ReelWords
     {
         static void Main(string[] args)
         {
-            bool playing = true;
+            string dictionaryFilePath = @"..\..\..\Resources\american-english-large.txt";
+            string reelFilePath = @"..\..\..\Resources\reels.txt";  // Assuming the file is named reels.txt
+            string scoresFilePath = @"..\..\..\Resources\scores.txt";  // Assuming the file is named scores.txt
 
-            while (playing)
-            {
-                string input = Console.ReadLine();
 
-                // TODO:  Run game logic here using the user input string
+            GameLogic.Game game = new GameLogic.Game();
+            game.Initialize(dictionaryFilePath, reelFilePath , scoresFilePath);
+            game.Play();
 
-                // TODO:  Create simple unit tests to test your code in the ReelWordsTests project,
-                // don't worry about creating tests for everything, just important functions as
-                // seen for the Trie tests
-            }
         }
     }
 }
