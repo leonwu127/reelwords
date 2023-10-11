@@ -10,6 +10,13 @@
 !.vscode/*.code-snippets
 .vscode
 
+### Visual Stuiod ###
+.vs/
+/ReelWordsTests/bin/
+/ReelWordsTests/obj/
+/ReelWords/bin/
+/ReelWords/obj/
+
 # Local History for Visual Studio Code
 .history/
 
