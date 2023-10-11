@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ReelWords.Entities
 {
-    public class Trie
+    public class Trie : ITrie
     {
         private readonly TrieNode root;
 
@@ -21,7 +21,7 @@ namespace ReelWords.Entities
         {
             if (!WordValidator.IsValidWord(word))
             {
-                throw new InvalidWordException("Invalid word: " + word);
+                return false;
             }
             word = word.ToLower();
             var currentNode = root;
@@ -41,7 +41,7 @@ namespace ReelWords.Entities
         {
             if (!WordValidator.IsValidWord(word))
             {
-                return;
+                throw new InvalidWordException("Invalid word: " + word);
             }
             word = WordValidator.NormalizeWord(word);
 

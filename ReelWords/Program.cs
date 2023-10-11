@@ -1,8 +1,8 @@
 ﻿using ReelWords.Entities;
 using ReelWords.GameLogic;
+using ReelWords.GameLogic.Reel;
 using ReelWords.GameLogic.UI;
 using ReelWords.Services;
-using System;
 
 namespace ReelWords
 {
@@ -15,12 +15,12 @@ namespace ReelWords
             string scoresFilePath = @"..\..\..\Resources\scores.txt";
 
             Trie trie = new Trie();
-            ReelManager reelManager = new ReelManager();
-            ScoreManager scoreManager = new ScoreManager();
+            ReelManager reelManager = new WordsReelManager();
+            RWScoreManager scoreManager = new RWScoreManager();
             IUserInteraction userInteraction = new ConsoleUserInteraction();
             DictionaryLoader dictionaryLoader = new DictionaryLoader();
 
-            GameLogic.Game game = new GameLogic.Game(trie, reelManager, scoreManager, userInteraction, dictionaryLoader);
+            Game game = new Game(trie, reelManager, scoreManager, userInteraction, dictionaryLoader);
             game.Initialize(dictionaryFilePath, reelFilePath , scoresFilePath);
             game.Play();
 

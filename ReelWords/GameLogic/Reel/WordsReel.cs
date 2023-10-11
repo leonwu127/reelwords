@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReelWords.GameLogic
+namespace ReelWords.GameLogic.Real
 {
-    public class Reel
+    public class WordsReel
     {
         private readonly List<char> _letters;
         private int _currentPosition;
 
-        public Reel(string letters)
+        public WordsReel(string letters)
         {
             _letters = new List<char>(letters);
             _currentPosition = 0;
@@ -29,6 +29,5 @@ namespace ReelWords.GameLogic
             _currentPosition = (_currentPosition + 1) % _letters.Count;
         }
 
-        // TODO: Other methods for manipulating and querying the state of the reel.
     }
 }

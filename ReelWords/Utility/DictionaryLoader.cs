@@ -15,7 +15,7 @@ namespace ReelWords.Services
         {
         }
 
-        public void LoadWords(Trie trie, string filePath)
+        public void LoadWords(ITrie trie, string filePath)
         {
             if (trie == null)
             {

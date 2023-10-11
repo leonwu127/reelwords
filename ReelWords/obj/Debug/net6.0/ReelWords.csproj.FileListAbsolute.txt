@@ -16,3 +16,4 @@ C:\Users\leonw\Desktop\Leon Job Seeking\tests\Program\ReelWords\obj\Debug\net6.0
 C:\Users\leonw\Desktop\Leon Job Seeking\tests\Program\ReelWords\bin\Debug\net6.0\Castle.Core.dll
 C:\Users\leonw\Desktop\Leon Job Seeking\tests\Program\ReelWords\bin\Debug\net6.0\Moq.dll
 C:\Users\leonw\Desktop\Leon Job Seeking\tests\Program\ReelWords\obj\Debug\net6.0\ReelWords.csproj.CopyComplete
+C:\Users\leonw\Desktop\Leon Job Seeking\tests\Program\ReelWords\bin\Debug\net6.0\Resources\american-english-large.txt

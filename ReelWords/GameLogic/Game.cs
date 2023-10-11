@@ -1,4 +1,6 @@
 ﻿using ReelWords.Entities;
+using ReelWords.GameLogic.Reel;
+using ReelWords.GameLogic.Score;
 using ReelWords.GameLogic.UI;
 using ReelWords.Services;
 using ReelWords.Utility;
@@ -12,14 +14,14 @@ namespace ReelWords.GameLogic
 {
     public class Game
     {
-        private readonly Trie _trie;
+        private readonly ITrie _trie;
         private readonly ReelManager _reelManager;
         private readonly ScoreManager _scoreManager;
         private readonly IUserInteraction _userInteraction;
         private readonly DictionaryLoader _dictionaryLoader;
 
         public Game(
-            Trie trie,
+            ITrie trie,
             ReelManager reelManager,
             ScoreManager scoreManager,
             IUserInteraction userInteraction,
@@ -46,54 +48,41 @@ namespace ReelWords.GameLogic
             {
                 _reelManager.ShowReels(_scoreManager);
 
-                string inputWord = GetPlayerInput();
+                string inputWord = _userInteraction.GetPlayerInput();
                 if (inputWord.Equals("exit", StringComparison.OrdinalIgnoreCase))
                 {
                     isGameOver = true;
-                    Console.WriteLine("Thanks for playing!");
+                    _userInteraction.DisplayMessage("Thanks for playing!");
                     break;
                 }
 
                 if (!WordValidator.IsValidWord(inputWord))
                 {
-                    Console.WriteLine("Invalid input. Try again.");
+                    _userInteraction.DisplayMessage("Invalid input. Try again.");
                     continue;
                 }
 
-                if (_reelManager.IsWordFormable(inputWord) && _trie.Search(inputWord))
+                char[] currentLetters = _reelManager.getCurrentReelsDisplay().ToCharArray();
+
+                if (WordValidator.IsWordFormable(currentLetters, inputWord) && _trie.Search(inputWord))
                 {
-                    Console.WriteLine("Word is formable!");
+                    _userInteraction.DisplayMessage("Word is formable!");
                     _scoreManager.UpdateScore(inputWord);
                 }
                 else
                 {
-                    Console.WriteLine("Word is not formable! Try again.");
-                    Console.WriteLine("Do you want to roll the reels? (y/n)");
-                    string rollReels = Console.ReadLine();
+                    _userInteraction.DisplayMessage("Word is not formable! Try again.");
+                    string rollReels = _userInteraction.Prompt("Do you want to roll the reels? (y or [Press any key to try again])");
                     if (rollReels.Equals("y", StringComparison.OrdinalIgnoreCase))
                     {
                         _reelManager.AdvanceAllReels();
-                    } else
-                    {
-                        Console.WriteLine("[Press any key to try again]");
-                        Console.ReadKey(true);
-                        Console.WriteLine();
                     }
                     continue;
                 }
-
                 _reelManager.UpdateReels(inputWord);
-
-                Console.WriteLine($"Your current score is: {_scoreManager.Score}");
-
+                _userInteraction.DisplayMessage($"Your current score is: {_scoreManager.GetScore()}");
             }
 
-        }
-
-        private string GetPlayerInput()
-        {
-            Console.Write("Enter a word: ");
-            return Console.ReadLine();
         }
     }
 
