@@ -6,7 +6,7 @@ namespace ReelWordsTests
 {
     public class TrieTests
     {
-        private const string TEST_WORD = "parallel";
+        private const string TEST_WORD = "rell";
 
         [Fact]
         public void TrieInsertTest()

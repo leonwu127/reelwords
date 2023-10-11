@@ -1,16 +1,17 @@
 ﻿using ReelWords.Exceptions;
+using ReelWords.GameLogic.Score;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
 namespace ReelWords.GameLogic
 {
-    public class ScoreManager
+    public class RWScoreManager : ScoreManager
     {
         private int _score;
         private Dictionary<char, int> _scoreTable;
 
-        public ScoreManager()
+        public RWScoreManager()
         {
             _score = 0;
             _scoreTable = new Dictionary<char, int>();
@@ -64,7 +65,7 @@ namespace ReelWords.GameLogic
             }
         }
 
-        public int getScore(char letter)
+        public int GetScoreForLetter(char letter)
         {
             if (_scoreTable.TryGetValue(letter, out var points))
             {
@@ -74,6 +75,10 @@ namespace ReelWords.GameLogic
             {
                 throw new InvalidWordException($"Score not found for letter '{letter}'");
             }
+        }
+        public int GetScore()
+        {
+            return _score;
         }
 
         public void ResetScore()

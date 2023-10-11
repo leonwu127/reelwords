@@ -8,4 +8,10 @@
     <ItemGroup>
         <PackageReference Include="Moq" Version="4.16.1" />
     </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Resources\american-english-large.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
 </Project>
