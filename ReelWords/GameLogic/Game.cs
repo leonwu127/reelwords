@@ -1,4 +1,5 @@
 ﻿using ReelWords.Entities;
+using ReelWords.GameLogic.UI;
 using ReelWords.Services;
 using ReelWords.Utility;
 using System;
@@ -14,20 +15,26 @@ namespace ReelWords.GameLogic
         private readonly Trie _trie;
         private readonly ReelManager _reelManager;
         private readonly ScoreManager _scoreManager;
+        private readonly IUserInteraction _userInteraction;
+        private readonly DictionaryLoader _dictionaryLoader;
 
-        public Game()
+        public Game(
+            Trie trie,
+            ReelManager reelManager,
+            ScoreManager scoreManager,
+            IUserInteraction userInteraction,
+            DictionaryLoader dictionaryLoader)
         {
-            _trie = new Trie();
-            _reelManager = new ReelManager();
-            _scoreManager = new ScoreManager();
+            _trie = trie;
+            _reelManager = reelManager;
+            _scoreManager = scoreManager;
+            _userInteraction = userInteraction;
+            _dictionaryLoader = dictionaryLoader;
         }
 
         public void Initialize(string dictionaryFilePath, string reelsFilePath, string scoresFilePath)
         {
-            // Load dictionary, reels, and scores
-            var dictionaryLoader = new DictionaryLoader();
-            dictionaryLoader.LoadWords(_trie, dictionaryFilePath);
-
+            _dictionaryLoader.LoadWords(_trie, dictionaryFilePath);
             _reelManager.LoadReels(reelsFilePath);
             _scoreManager.LoadScores(scoresFilePath);
         }
@@ -35,9 +42,8 @@ namespace ReelWords.GameLogic
         public void Play()
         {
             bool isGameOver = false;
-            while (!isGameOver)  // Replace with your game-over condition
+            while (!isGameOver)
             {
-                // clean the screen and display the reels
                 _reelManager.ShowReels(_scoreManager);
 
                 string inputWord = GetPlayerInput();
@@ -89,9 +95,6 @@ namespace ReelWords.GameLogic
             Console.Write("Enter a word: ");
             return Console.ReadLine();
         }
-
-
-
     }
 
 }
