@@ -27,10 +27,10 @@ namespace ReelWordsTests
         }
 
         [Fact]
-        public void TrieInsert_EmptyString_ThrowsInvlidWordException()
+        public void TrieInsert_EmptyString_ShouldNotThrowAnything()
         {
             Trie trie = new Trie();
-            Assert.Throws<InvalidWordException>(() => trie.Insert(string.Empty));
+            trie.Insert(string.Empty);
         }
 
         [Fact]
@@ -48,10 +48,10 @@ namespace ReelWordsTests
         }
 
         [Fact]
-        public void TrieInsert_NullString_ThrowsInvlidWordException()
+        public void TrieInsert_NullString_ShouldNotThrowAnything()
         {
             Trie trie = new Trie();
-            Assert.Throws<InvalidWordException>(() => trie.Insert(null));
+            trie.Insert(null);
         }
 
         [Fact]

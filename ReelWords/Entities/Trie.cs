@@ -41,7 +41,7 @@ namespace ReelWords.Entities
         {
             if (!WordValidator.IsValidWord(word))
             {
-                throw new InvalidWordException("Invalid word: " + word);
+                return;
             }
             word = WordValidator.NormalizeWord(word);
 
