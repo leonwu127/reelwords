@@ -83,7 +83,7 @@ namespace ReelWords.GameLogic.Reel
             {
                 var letter = _reels[i].CurrentLetter;
                 var score = _scoreManager.GetScoreForLetter(letter);
-                output.AppendFormat("{0}[{1}] ", letter, score);
+                output.AppendFormat("{0}[{1}] ", letter.ToString().ToUpper(), score);
             }
 
             // Trim the trailing space if there is one, and then write the output to the console
