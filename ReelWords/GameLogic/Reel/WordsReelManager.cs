@@ -38,14 +38,12 @@ namespace ReelWords.GameLogic.Reel
                 var reel = new WordsReel(l);  // Assuming a Reel constructor that takes a string of letters.
                 _reels.Add(reel);
             }
-
-            // Optionally, randomize the initial positions of the reels.
+            // Randomize the initial positions of the reels.
             RandomizeReels();
         }
 
         public void UpdateReels(string word)
         {
-            // TODO: Implement reel update logic based on the word that was played.
             if (string.IsNullOrEmpty(word)) throw new InvalidWordException();
 
             var usedReels = new HashSet<int>();  // Keeps track of reels already used for a letter

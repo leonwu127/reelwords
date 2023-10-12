@@ -66,7 +66,6 @@ namespace ReelWordsTests
         {
             Trie trie = new Trie();
             Assert.Throws<InvalidWordException>(() => trie.Delete(null));
-            // Asserting that no exception is thrown
         }
 
         [Fact]
