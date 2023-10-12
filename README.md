@@ -20,7 +20,6 @@ ReelWords is a word-based game where players interact with reels to form valid w
 3. Run the game:
 `dotnet run --project ReelWords/ReelWords.csproj`
 
-
 ## Game Flow
 
 For a detailed game flow, check out [GameFlow.txt](https://github.com/leonwu127/reelwords/blob/master/ReelWords/GameFlow.txt).
@@ -35,6 +34,4 @@ For a detailed game flow, check out [GameFlow.txt](https://github.com/leonwu127/
 
 Unit tests are available for the game logic and Trie data structure. To run the tests, navigate to the project directory and execute:
 `dotnet test`
-
-
 
