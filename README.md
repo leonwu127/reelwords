@@ -35,3 +35,15 @@ For a detailed game flow, check out [GameFlow.txt](https://github.com/leonwu127/
 Unit tests are available for the game logic and Trie data structure. To run the tests, navigate to the project directory and execute:
 `dotnet test`
 
+## Implementation Preference
+**Handling Various Word Types in "american-english-large.txt": **
+The file contains different word types like names (e.g., "Anna"), possessives (e.g., "Anna's"), abbreviations, and word variations (e.g., "é"). 
+Here's how I handle them:
+a. Ignoring Words with Upper Case and Special Characters: This approach will exclude names, possessives, abbreviations, and words with special characters from being inserted into the Trie. Rationale: Names and abbreviations are usually not considered as restricted words, and since the reel only has a limited vocabulary, there's little value in matching words with special characters.
+b. Limiting Word Length: Only words with six or fewer characters will be considered, aligning with the fact that there are only six reels. 
+c. Normalizing Word Variations: Variations in words will be normalized to ensure accurate matching. 
+
+**Resolving Ambiguities in User Input: **
+For instance, if the program displays "a a b n n d" and the user enters "and", there's a potential ambiguity in determining which letters on the reel should match the entered word.  
+My implementation:
+a. Match the Letters from Left to Right: This approach will match the first occurrence of each letter from the left. 
