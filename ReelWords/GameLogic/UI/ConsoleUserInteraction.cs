@@ -10,7 +10,7 @@ namespace ReelWords.GameLogic.UI
     {
         public string GetPlayerInput()
         {
-            Console.Write("Enter a word: ");
+            Console.Write("Enter a word from the reel or 'exit' to end the game: ");
             return Console.ReadLine();
         }
 

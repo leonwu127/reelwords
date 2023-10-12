@@ -154,7 +154,7 @@ namespace ReelWords.Tests
 
             game.Play();
 
-            _mockUserInteraction.Verify(ui => ui.DisplayMessage("Word is not formable! Try again."), Times.Once());
+            _mockUserInteraction.Verify(ui => ui.DisplayMessage("Invalid word! Word is not formable! Try again."), Times.Once());
             _mockReelManager.Verify(rm => rm.AdvanceAllReels(), Times.Once());
         }
 
@@ -176,7 +176,7 @@ namespace ReelWords.Tests
 
             game.Play();
 
-            _mockUserInteraction.Verify(ui => ui.DisplayMessage("Word is not formable! Try again."), Times.Once());
+            _mockUserInteraction.Verify(ui => ui.DisplayMessage("Invalid word! Word is not formable! Try again."), Times.Once());
             _mockReelManager.Verify(rm => rm.AdvanceAllReels(), Times.Never);
         }
 
